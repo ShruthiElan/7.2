@@ -1,0 +1,6 @@
+1.A = load '/user/acadgild/Desktop/ex.txt';
+2.B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+3.C = filter B by word matches '\\w+';
+4.D = group C by word;
+5.E = foreach D generate COUNT(C), group;
+6.dump E;
